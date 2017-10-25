@@ -13,7 +13,7 @@
 		<!-- Get data from the model -->
 		<p>The message: ${message}</p>
 		<hr />
-		<a href="/SpringMvcDemo">Go back</a> 
+		<a href="/SpringMvc">Go back</a> 
 	
 	</body>
 </html>

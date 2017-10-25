@@ -11,19 +11,19 @@ public class HelloWorldController {
 
 	@RequestMapping("/showform")
 	public String showForm() {
-		return "helloworld-form";
+		return "helloworld/helloworld-form";
 	}
 
 	@RequestMapping("/processform")
 	public String processForm() {
-		return "helloworld";
+		return "helloworld/helloworld";
 	}
 
 	@RequestMapping("/processformtwo")
 	public String processFormWithCapitals(@RequestParam("studentName") String theName, Model model) {
 
 		/* This happens behind the scenes when using @RequestParam("studentName")
-		 * (Request Param Binding) request.getParameter("studentName");
+		 * **(Request Param Binding) request.getParameter("studentName"); **
 		 */
 
 		String result = "Yo! " + theName.toUpperCase();
@@ -31,6 +31,6 @@ public class HelloWorldController {
 		// Add message to the model
 		model.addAttribute("message", result);
 
-		return "helloworld";
+		return "helloworld/helloworld";
 	}
 }
