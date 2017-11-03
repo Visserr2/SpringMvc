@@ -13,6 +13,10 @@
 		
 		Country: ${student.country}
 		
+		<br><br>
+		
+		The student favorite language is: ${student.favoriteLanguage}
+		
 		<hr />
 		<a href="/SpringMvc">Go back</a> 
 		

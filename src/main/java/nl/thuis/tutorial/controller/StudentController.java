@@ -16,6 +16,8 @@ public class StudentController {
 	
     @Value("#{countries}") 
     private Map<String, String> countryOptions;
+    @Value("#{favoriteLanguages}") 
+    private Map<String, String> languageOptions;
 	
 	@RequestMapping("/showform")
 	public String showForm(Model theModel) {
@@ -25,6 +27,7 @@ public class StudentController {
 
 		// add countryOptions to model
 		theModel.addAttribute("countryOptions", countryOptions); 
+		theModel.addAttribute("languageOptions", languageOptions); 
 		
 		return "student/student-form";
 	}
