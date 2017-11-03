@@ -1,7 +1,10 @@
 package nl.thuis.tutorial.config;
 
+import org.springframework.beans.factory.config.PropertiesFactoryBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -31,5 +34,16 @@ public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	}
+	
+	/**
+	 * This methods imports properties from property file (countries.properties)
+	 * @return PropertyFactoryBean-Object
+	 */
+	@Bean(name = "countries")
+	public PropertiesFactoryBean countries() {
+	    PropertiesFactoryBean bean = new PropertiesFactoryBean();
+	    bean.setLocation(new ClassPathResource("countries.properties"));
+	    return bean;
 	}
 }

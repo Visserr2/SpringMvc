@@ -1,23 +1,14 @@
 package nl.thuis.tutorial.beans;
 
-import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Value;
 
 public class Student {
 
 	private String firstName;
 	private String lastName;
 	private String country;
-	
-	private LinkedHashMap<String, String> countryOptions;
-	
-	public Student() {
-		countryOptions = new LinkedHashMap<>();
-		countryOptions.put("Nederland", "Nederland");
-		countryOptions.put("Engeland", "Engeland");
-		countryOptions.put("Duitsland", "Duitsland");
-		countryOptions.put("België", "België");
-		countryOptions.put("Frankrijk", "Frankrijk");
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -41,10 +32,6 @@ public class Student {
 
 	public void setCountry(String country) {
 		this.country = country;
-	}
-	
-	public LinkedHashMap<String, String> getCountryOptions() {
-		return countryOptions;
 	}
 
 }
