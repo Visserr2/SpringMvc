@@ -20,12 +20,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan({"nl.thuis.tutorial.controller"})
 public class WebConfig implements WebMvcConfigurer {
 	
+	private static final String COUNTRIES_PROPERTIES = "countries.properties";
+	
+	private static final String PREFIX = "/WEB-INF/view/";
+	private static final String SUFFIX = ".jsp";
+	private static final String RESOURCE_PATH_PATTERN = "/resources/**";
+	private static final String RESOURCE_LOCATIONS = "/resources/";
+	
 	/**
 	 * This method defines the JSP View Controller
 	 */
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
-		registry.jsp("/WEB-INF/view/", ".jsp");
+		registry.jsp(PREFIX, SUFFIX);
 	}
 	
 	/**
@@ -33,7 +40,7 @@ public class WebConfig implements WebMvcConfigurer {
 	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		registry.addResourceHandler(RESOURCE_PATH_PATTERN).addResourceLocations(RESOURCE_LOCATIONS);
 	}
 	
 	/**
@@ -43,7 +50,7 @@ public class WebConfig implements WebMvcConfigurer {
 	@Bean(name = "countries")
 	public PropertiesFactoryBean countries() {
 	    PropertiesFactoryBean bean = new PropertiesFactoryBean();
-	    bean.setLocation(new ClassPathResource("countries.properties"));
+	    bean.setLocation(new ClassPathResource(COUNTRIES_PROPERTIES));
 	    return bean;
 	}
 }

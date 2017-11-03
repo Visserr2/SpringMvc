@@ -1,9 +1,5 @@
 package nl.thuis.tutorial.beans;
 
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Value;
-
 public class Student {
 
 	private String firstName;
