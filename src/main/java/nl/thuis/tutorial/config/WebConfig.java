@@ -1,9 +1,11 @@
 package nl.thuis.tutorial.config;
 
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -20,6 +22,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan({"nl.thuis.tutorial.controller"})
 public class WebConfig implements WebMvcConfigurer {
 	
+	// Property files
+	private static final String MESSAGES_PROPERTIES = "messages";
 	private static final String COUNTRIES_PROPERTIES = "countries.properties";
 	private static final String FAVORITE_LANGUAGES_PROPERTIES = "favoritelanguages.properties";
 	private static final String OPERATING_SYSTEMS_PROPERTIES = "operatingsystems.properties";
@@ -44,6 +48,17 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler(RESOURCE_PATH_PATTERN).addResourceLocations(RESOURCE_LOCATIONS);
 	}
+	
+	/**
+	 * Loading messages.properties for custom messages
+	 * @return MessageSource
+	 */
+    @Bean
+    public MessageSource messageSource() {
+    	ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasenames(MESSAGES_PROPERTIES);
+        return messageSource;
+    }
 	
 	/**
 	 * This methods imports properties from property file (countries.properties)

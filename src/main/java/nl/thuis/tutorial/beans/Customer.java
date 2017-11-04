@@ -9,12 +9,13 @@ import javax.validation.constraints.Size;
 public class Customer {
 
 	private String firstName;	
-	@NotNull(message="Required")
-	@Size(min=1, message="Required")
+	@NotNull(message="required")
+	@Size(min=1, message="required")
 	private String lastName;
+	@NotNull(message="required")  // Use Integer-wrapper class to use NotNull-Annotation, else conversion error
 	@Min(value=0, message="must be greater than or equal to zero")
 	@Max(value=10, message="must be less than or equal to 10")
-	private int freePasses;
+	private Integer freePasses;
 	@Pattern(regexp="^[a-zA-z0-9]{5}", message="only five characters/digits")
 	private String postalCode;
 
@@ -30,10 +31,10 @@ public class Customer {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public int getFreePasses() {
+	public Integer getFreePasses() {
 		return freePasses;
 	}
-	public void setFreePasses(int freePasses) {
+	public void setFreePasses(Integer freePasses) {
 		this.freePasses = freePasses;
 	}
 	public String getPostalCode() {
