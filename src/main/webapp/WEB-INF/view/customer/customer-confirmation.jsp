@@ -17,6 +17,10 @@
 		
 		<br><br>
 		
+		Postal code ${customer.postalCode}
+		
+		<br><br>
+		
 		<hr />
 		<a href="/SpringMvc">Go back</a> 
 		
