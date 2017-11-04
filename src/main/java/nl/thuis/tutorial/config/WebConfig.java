@@ -22,6 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
 	
 	private static final String COUNTRIES_PROPERTIES = "countries.properties";
 	private static final String FAVORITE_LANGUAGES_PROPERTIES = "favoritelanguages.properties";
+	private static final String OPERATING_SYSTEMS_PROPERTIES = "operatingsystems.properties";
 	
 	private static final String PREFIX = "/WEB-INF/view/";
 	private static final String SUFFIX = ".jsp";
@@ -63,6 +64,17 @@ public class WebConfig implements WebMvcConfigurer {
 	public PropertiesFactoryBean favoriteLanguages() {
 	    PropertiesFactoryBean bean = new PropertiesFactoryBean();
 	    bean.setLocation(new ClassPathResource(FAVORITE_LANGUAGES_PROPERTIES));
+	    return bean;
+	}
+	
+	/**
+	 * This methods imports properties from property file (countries.properties)
+	 * @return PropertyFactoryBean-Object
+	 */
+	@Bean(name = "operatingSystems")
+	public PropertiesFactoryBean operatingSystems() {
+	    PropertiesFactoryBean bean = new PropertiesFactoryBean();
+	    bean.setLocation(new ClassPathResource(OPERATING_SYSTEMS_PROPERTIES));
 	    return bean;
 	}
 }
