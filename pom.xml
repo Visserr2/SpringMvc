@@ -58,6 +58,13 @@
 			<version>5.0.0.RELEASE</version>
 		</dependency>
 
+		<!-- Adding Support for Hibernate Validation (JSR-303/309)-->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.4.Final</version>
+		</dependency>
+
 		<!-- Adding Support for Jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
