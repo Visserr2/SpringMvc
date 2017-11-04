@@ -13,6 +13,10 @@
 		
 		<br><br>
 		
+		Free passes ${customer.freePasses}
+		
+		<br><br>
+		
 		<hr />
 		<a href="/SpringMvc">Go back</a> 
 		
