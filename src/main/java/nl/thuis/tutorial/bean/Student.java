@@ -1,4 +1,4 @@
-package nl.thuis.tutorial.beans;
+package nl.thuis.tutorial.bean;
 
 public class Student {
 

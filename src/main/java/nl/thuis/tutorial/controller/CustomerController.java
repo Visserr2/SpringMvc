@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import nl.thuis.tutorial.beans.Customer;
+import nl.thuis.tutorial.bean.Customer;
 
 @Controller
 @RequestMapping("/customer")

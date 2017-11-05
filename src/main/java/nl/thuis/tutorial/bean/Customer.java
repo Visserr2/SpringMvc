@@ -1,10 +1,12 @@
-package nl.thuis.tutorial.beans;
+package nl.thuis.tutorial.bean;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import nl.thuis.tutorial.annotation.Prefix;
 
 public class Customer {
 
@@ -18,7 +20,9 @@ public class Customer {
 	private Integer freePasses;
 	@Pattern(regexp="^[a-zA-z0-9]{5}", message="only five characters/digits")
 	private String postalCode;
-
+	@Prefix(message="Course code doesn't start with 'LUV'")
+	private String courseCode;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -42,6 +46,12 @@ public class Customer {
 	}
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
+	}
+	public String getCourseCode() {
+		return courseCode;
+	}
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
 	}
 	
 }

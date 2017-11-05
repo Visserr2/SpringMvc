@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import nl.thuis.tutorial.beans.Student;
+import nl.thuis.tutorial.bean.Student;
 
 @Controller
 @RequestMapping("/student")
